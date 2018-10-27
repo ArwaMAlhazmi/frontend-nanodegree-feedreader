@@ -98,7 +98,6 @@ $(function() {
 
          it('has entry', function(){
             var feedElement = document.querySelector('.feed');
-            console.log(feedElement.firstElementChild.firstElementChild);
             expect(feedElement.firstElementChild.firstElementChild.classList.contains('entry')).toBe(true);
          });
     });
@@ -114,14 +113,14 @@ $(function() {
 
          beforeEach(function(done) {
             loadFeed(0);
-            document.querySelectorAll('.entry-link').forEach(function(entry){
+            document.querySelectorAll('.entry').forEach(function(entry){
                 firstFeedEntries.push(entry.innerText);
             });
             loadFeed(1, done);
          });
 
          it('content changes', function(){
-            document.querySelectorAll('.entry-link').forEach(function(entry, index){
+            document.querySelectorAll('.entry').forEach(function(entry, index){
                 expect(entry.innerText === firstFeedEntries[index]).toBe(false);
             });
 
