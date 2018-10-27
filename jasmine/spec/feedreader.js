@@ -33,7 +33,8 @@ $(function() {
          */
          it('has property', function(){
             allFeeds.forEach(function(feed){
-                expect(feed.url).toBeTruthy();
+                expect(feed.url).toBeDefined();
+                expect(feed.url.length).not.toEqual(0);
             });
             
          });
@@ -45,7 +46,8 @@ $(function() {
          */
          it('has property', function(){
             allFeeds.forEach(function(feed){
-                expect(feed.name).toBeTruthy();
+                expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toEqual(0);
             });
             
          });
@@ -72,7 +74,7 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
           it('is on/off', function(){
-            let headerElement = document.querySelector('.icon-list');
+            let headerElement = document.querySelector('.menu-icon-link');
 
             headerElement.click();
             expect(bodyElement.classList.contains('menu-hidden')).toBe(false);
@@ -96,7 +98,8 @@ $(function() {
 
          it('has entry', function(){
             var feedElement = document.querySelector('.feed');
-            expect(feedElement.firstElementChild.classList.contains('entry-link')).toBe(true);
+            console.log(feedElement.firstElementChild.firstElementChild);
+            expect(feedElement.firstElementChild.firstElementChild.classList.contains('entry')).toBe(true);
          });
     });
         
